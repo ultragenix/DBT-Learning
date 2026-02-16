@@ -6,8 +6,8 @@ SELECT
     cast(DOLocationID as int) as dropoff_location_id,
 
     -- timestamps
-    cast(lpep_pickup_datetime as timestamp) as lpep_pickup_datetime,
-    cast(lpep_dropoff_datetime as timestamp) as lpep_dropoff_datetime,
+    cast(lpep_pickup_datetime as timestamp) as pickup_datetime,
+    cast(lpep_dropoff_datetime as timestamp) as dropoff_datetime,
 
     -- trip info
     store_and_fwd_flag,
