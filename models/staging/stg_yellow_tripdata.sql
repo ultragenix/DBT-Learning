@@ -22,6 +22,8 @@ SELECT
     cast(tolls_amount as numeric) as tolls_amount,
     cast(improvement_surcharge as numeric) as improvement_surcharge,
     cast(total_amount as numeric) as total_amount,
-    cast(payment_type as numeric) as payment_type
+    cast(payment_type as numeric) as payment_type,
+    
+    'Yellow' as service_type
 FROM {{source("raw_data", "yellow_tripdata")}}
 WHERE VendorID IS NOT NULL

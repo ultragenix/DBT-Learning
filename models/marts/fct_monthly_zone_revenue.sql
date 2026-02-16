@@ -9,12 +9,9 @@ dim_zones as (
 SELECT
     -- zone info
     pickup_location_id,
-    pickup_zone.borough as pickup_borough,
     pickup_zone.zone as pickup_zone,
-    dropoff_location_id,
-    dropoff_zone.borough as dropoff_borough,
-    dropoff_zone.zone as dropoff_zone,
 
+    service_type,
     -- monthly
     DATE_TRUNC(pickup_datetime, MONTH) as revenue_month,
 
@@ -31,7 +28,5 @@ SELECT
 FROM trips
 LEFT JOIN dim_zones as pickup_zone
     ON trips.pickup_location_id = pickup_zone.location_id
-LEFT JOIN dim_zones as dropoff_zone
-    ON trips.dropoff_location_id = dropoff_zone.location_id
 
-GROUP BY 1, 2, 3, 4, 5, 6, 7
+GROUP BY pickup_location_id, pickup_zone, service_type, revenue_month

@@ -72,6 +72,7 @@ trips as (
         improvement_surcharge,
         total_amount,
         payment_type,
+        service_type,
         ROW_NUMBER() OVER(PARTITION BY 
             vendor_id || '-' || ratecode_id || '-' ||
             UNIX_SECONDS(pickup_datetime) || '-' ||
