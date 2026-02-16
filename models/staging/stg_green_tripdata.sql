@@ -6,8 +6,8 @@ SELECT
     cast(DOLocationID as int) as dropoff_location_id,
 
     -- timestamps
-    cast(lpep_pickup_datetime as timestamp) as lpep_pickup_datetime,
-    cast(lpep_dropoff_datetime as timestamp) as lpep_dropoff_datetime,
+    cast(lpep_pickup_datetime as timestamp) as pickup_datetime,
+    cast(lpep_dropoff_datetime as timestamp) as dropoff_datetime,
 
     -- trip info
     store_and_fwd_flag,
@@ -23,6 +23,8 @@ SELECT
     cast(tolls_amount as numeric) as tolls_amount,
     cast(improvement_surcharge as numeric) as improvement_surcharge,
     cast(total_amount as numeric) as total_amount,
-    cast(payment_type as numeric) as payment_type
+    cast(payment_type as numeric) as payment_type,
+    
+    'Green' as service_type
 FROM {{source("raw_data", "green_tripdata")}}
 WHERE VendorID IS NOT NULL
