@@ -1,0 +1,9 @@
+version: 2
+sources:
+  - name: raw_data
+    description: "Raw data sources for NYC taci rides"
+    database: cohesive-folio-485508-e4
+    schema: zoomcamp
+    tables:
+      - name: yellow_tripdata
+      - name: green_tripdata
