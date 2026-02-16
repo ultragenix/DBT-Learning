@@ -12,5 +12,5 @@ rename as (
 )
 
 
---SELECT * from rename
-SELECT * from taxi_zone_lookup
+SELECT * from rename
+--SELECT * from taxi_zone_lookup
